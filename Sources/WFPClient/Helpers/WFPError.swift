@@ -8,12 +8,12 @@
 import Foundation
 
 public enum WFPError: Error, CustomStringConvertible {
-    case codableError
+    case codableDecodeError
 
     public var description: String {
         switch self {
-        case .codableError:
-            return "Can't convert to codable model"
+        case .codableDecodeError:
+            return "Can't decode server response to swift struct"
         }
     }
 

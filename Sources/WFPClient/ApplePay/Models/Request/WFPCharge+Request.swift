@@ -6,6 +6,8 @@
 //  Copyright © 2020 Oleh Hudeichuk. All rights reserved.
 //
 
+import Foundation
+
 public struct WFPChargeRequest: Codable {
 
     public var apiVersion: Int
@@ -14,10 +16,10 @@ public struct WFPChargeRequest: Codable {
     public var merchantDomainName: String
     public var orderReference: String
     public var orderDate: Int64
-    public var amount: Int
+    public var amount: Decimal
     public var currency: WFPCurrency
     public var productName: [String]
-    public var productPrice: [Int]
+    public var productPrice: [Decimal]
     public var productCount: [Int]
     public var clientFirstName: String
     public var clientLastName: String
@@ -39,10 +41,10 @@ public struct WFPChargeRequest: Codable {
                 merchantDomainName: String,
                 orderReference: String,
                 orderDate: Int64,
-                amount: Int = 0,
+                amount: Decimal = 0.0,
                 currency: WFPCurrency,
                 productName: [String] = [],
-                productPrice: [Int] = [],
+                productPrice: [Decimal] = [],
                 productCount: [Int] = [],
                 clientFirstName: String,
                 clientLastName: String,

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Oleh Hudeichuk. All rights reserved.
 //
 
+import Foundation
+
 public struct WFPChargeResponse: Codable {
 
     public var reason: String
@@ -14,7 +16,7 @@ public struct WFPChargeResponse: Codable {
     public var authTicket: String?
     public var orderReference: String?
     public var merchantSignature: String?
-    public var amount: Double?
+    public var amount: Decimal?
     public var currency: WFPCurrency?
     public var authCode: String?
     public var email: String?

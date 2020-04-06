@@ -26,11 +26,11 @@ open class WFPClient {
         self.httpClient = httpClient
     }
 
-    public func addProduct(name: String, price: Int, count: Int) {
+    public func addProduct(name: String, price: Decimal, count: Int) {
         request.productName.append(name)
         request.productPrice.append(price)
         request.productCount.append(count)
-        request.amount += price * count
+        request.amount += price * Decimal(count)
     }
 
     public func generateSignature() {
@@ -58,7 +58,7 @@ open class WFPClient {
                 if let response: WFPChargeResponse = try? JSONDecoder().decode(WFPChargeResponse.self, from: data) {
                     handler(.success(response))
                 } else {
-                    handler(.failure(WFPError.codableError))
+                    handler(.failure(WFPError.codableDecodeError))
                 }
             case let .failure(error):
                 handler(.failure(error))
@@ -71,17 +71,17 @@ open class WFPClient {
         addSignItem(to: &string, request.merchantAccount)
         addSignItem(to: &string, request.merchantDomainName)
         addSignItem(to: &string, request.orderReference)
-        addSignItem(to: &string, String(request.orderDate))
-        addSignItem(to: &string, String(request.amount))
+        addSignItem(to: &string, "\(request.orderDate)")
+        addSignItem(to: &string, "\(request.amount))")
         addSignItem(to: &string, request.currency.rawValue)
         request.productName.forEach { (name) in
             addSignItem(to: &string, name)
         }
         request.productCount.forEach { (count) in
-            addSignItem(to: &string, String(count))
+            addSignItem(to: &string, "\(count)")
         }
         request.productPrice.forEach { (price) in
-            addSignItem(to: &string, String(price))
+            addSignItem(to: &string, "\(price)")
         }
         string.remove(at: string.index(before: string.endIndex))
 
