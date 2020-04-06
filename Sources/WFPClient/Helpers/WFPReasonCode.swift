@@ -8,7 +8,7 @@
 import Foundation
 
 public enum WFPReasonCode: Int, Codable {
-    case Ок                                   = 1100
+    case Ok                                   = 1100
     case DeclinedToCardIssuer                 = 1101
     case BadCVV2                              = 1102
     case ExpiredCard                          = 1103
@@ -59,7 +59,7 @@ public enum WFPReasonCode: Int, Codable {
 
     public var description: String {
         switch self {
-        case .Ок:
+        case .Ok:
             return "Операция выполнена без ошибок"
         case .DeclinedToCardIssuer:
             return "Отказ Банка эмитента проводить операцию"
@@ -155,6 +155,112 @@ public enum WFPReasonCode: Int, Codable {
             return "Клиент временно заблокирован"
         case .Wait3dsData:
             return "Ожидание 3d secure верификации"
+        }
+    }
+}
+
+extension WFPReasonCode: Equatable {
+
+    public static func ==(lhs: WFPReasonCode, rhs: WFPReasonCode) -> Bool {
+        switch (lhs, rhs) {
+        case (.Ok, .Ok):
+            return true
+        case (.DeclinedToCardIssuer, .DeclinedToCardIssuer):
+            return true
+        case (.BadCVV2, .BadCVV2):
+            return true
+        case (.ExpiredCard, .ExpiredCard):
+            return true
+        case (.InsufficientFunds, .InsufficientFunds):
+            return true
+        case (.InvalidCard, .InvalidCard):
+            return true
+        case (.ExceedWithdrawalFrequency, .ExceedWithdrawalFrequency):
+            return true
+        case (.ThreeDsFail, .ThreeDsFail):
+            return true
+        case (.FormatError, .FormatError):
+            return true
+        case (.invalidCurrency, .invalidCurrency):
+            return true
+        case (.DuplicateOrderID, .DuplicateOrderID):
+            return true
+        case (.InvalidSignature, .InvalidSignature):
+            return true
+        case (.Fraud, .Fraud):
+            return true
+        case (.ParameterIsMissing, .ParameterIsMissing):
+            return true
+        case (.TokenNotFound, .TokenNotFound):
+            return true
+        case (.APINotAllowed, .APINotAllowed):
+            return true
+        case (.MerchantRestriction, .MerchantRestriction):
+            return true
+        case (.AuthenticationUnavailable, .AuthenticationUnavailable):
+            return true
+        case (.AccountNotFound, .AccountNotFound):
+            return true
+        case (.GateDeclined, .GateDeclined):
+            return true
+        case (.RefundNotAllowed, .RefundNotAllowed):
+            return true
+        case (.CardholderSessionExpired, .CardholderSessionExpired):
+            return true
+        case (.CardholderCanceledTheRequest, .CardholderCanceledTheRequest):
+            return true
+        case (.IllegalOrderState, .IllegalOrderState):
+            return true
+        case (.OrderNotFound, .OrderNotFound):
+            return true
+        case (.RefundLimitExcended, .RefundLimitExcended):
+            return true
+        case (.ScriptError, .ScriptError):
+            return true
+        case (.InvalidAmount, .InvalidAmount):
+            return true
+        case (.TransactionInProcessing, .TransactionInProcessing):
+            return true
+        case (.TransactionIsDelayed, .TransactionIsDelayed):
+            return true
+        case (.InvalidCommission, .InvalidCommission):
+            return true
+        case (.TransactionIsPending, .TransactionIsPending):
+            return true
+        case (.CardLimitsFailed, .CardLimitsFailed):
+            return true
+        case (.MerchantBalanceIsVerySmall, .MerchantBalanceIsVerySmall):
+            return true
+        case (.InvalidConfirmationAmount, .InvalidConfirmationAmount):
+            return true
+        case (.RefundInProcessing, .RefundInProcessing):
+            return true
+        case (.ExternalDeclineWhileCredit, .ExternalDeclineWhileCredit):
+            return true
+        case (.ExceedWithdrawalFrequencyWhileCredit, .ExceedWithdrawalFrequencyWhileCredit):
+            return true
+        case (.PartialVoidIsNotSupported, .PartialVoidIsNotSupported):
+            return true
+        case (.RefusedACredit, .RefusedACredit):
+            return true
+        case (.InvalidPhoneNumber, .InvalidPhoneNumber):
+            return true
+        case (.TransactionIsAwaitingDelivery, .TransactionIsAwaitingDelivery):
+            return true
+        case (.TransactionIsAwaitingCreditDecision, .TransactionIsAwaitingCreditDecision):
+            return true
+        case (.RestrictedCard, .RestrictedCard):
+            return true
+        case (.ClientIsNotFound, .ClientIsNotFound):
+            return true
+        case (.ClientIsNotLinked, .ClientIsNotLinked):
+            return true
+        case (.ClientIsLocked, .ClientIsLocked):
+            return true
+        case (.Wait3dsData, .Wait3dsData):
+            return true
+        default:
+            return false
         }
     }
 }

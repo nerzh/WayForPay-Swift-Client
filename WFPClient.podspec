@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name          = 'WFPClient'
   s.module_name   = 'WFPClient'
-  s.version       = '0.2.1'
+  s.version       = '0.2.2'
   s.summary       = 'WayForPay Swift Client for Apple Pay.'
   s.swift_version = '5.1'
 

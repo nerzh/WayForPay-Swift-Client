@@ -33,6 +33,13 @@ open class WFPClient {
         request.amount += price * Decimal(count)
     }
 
+    public func deleteProducts() {
+        request.productName = []
+        request.productPrice = []
+        request.productCount = []
+        request.amount = 0
+    }
+
     public func generateSignature() {
         request.merchantSignature = generateSignatureString().hmac(algorithm: .MD5, key: secretKey)
     }
