@@ -79,7 +79,7 @@ open class WFPClient {
         addSignItem(to: &string, request.merchantDomainName)
         addSignItem(to: &string, request.orderReference)
         addSignItem(to: &string, "\(request.orderDate)")
-        addSignItem(to: &string, "\(request.amount))")
+        addSignItem(to: &string, "\(request.amount)")
         addSignItem(to: &string, request.currency.rawValue)
         request.productName.forEach { (name) in
             addSignItem(to: &string, name)
