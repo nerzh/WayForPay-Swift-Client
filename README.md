@@ -4,7 +4,7 @@
 
 ```swift
 dependencies: [
-    .package(name: "WFPClient", url: "https://github.com/nerzh/WayForPay-Swift-Client.git", from: "0.2.0"),
+    .package(name: "WFPClient", url: "https://github.com/nerzh/WayForPay-Swift-Client.git", from: "0.2.3"),
 ],
 targets: [
     .target(
@@ -20,7 +20,7 @@ targets: [
 #### Install with Cocoapods
 
 ```ruby
-pod "WFPClient", '0.2.2'
+pod "WFPClient", '0.2.3'
 ```
 
 #### Import
